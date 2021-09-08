@@ -4,13 +4,11 @@ import static javax.swing.JOptionPane.showInputDialog;
 
 public class OppgaveO2 {
 
-	static int getScore() {
-		int score = Integer.parseInt(showInputDialog("Poengsum"));
-		int tries = 1;
+	static int getScore(int idx) {
+		int score = Integer.parseInt(showInputDialog("Poengsum til kandidat nr " + (idx + 1)));
 
 		while (score < 0 || score > 100) {
-			System.out.println("Ugyldig poengsum, skriv inn på nytt (" + tries++ + ")");
-			score = Integer.parseInt(showInputDialog("Poengsum"));
+			score = Integer.parseInt(showInputDialog("Ugyldig poengsum (0 - 100)"));
 		}
 
 		return score;
@@ -26,7 +24,7 @@ public class OppgaveO2 {
 	}
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 10; i++) checkScore(getScore());
+		for (int i = 0; i < 10; i++) checkScore(getScore(i));
 	}
 	
 }
